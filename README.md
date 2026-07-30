@@ -49,7 +49,7 @@ git clone https://github.com/Luca-Sclisizzo/AcademiCV.git
 Move into the project directory:
 
 ``` bash
-cd academic-cv-generator
+cd AcademiCV
 ```
 
 ### Install dependencies
