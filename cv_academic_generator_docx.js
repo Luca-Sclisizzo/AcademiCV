@@ -436,10 +436,11 @@ const doc = new Document({
 // ============================================================
 Packer.toBuffer(doc).then(buffer => {
   fs.writeFileSync(
-    config.outputPath,
+    config.outputPathDocx,
     buffer
   );
-  console.log(`Done! CV generated @ ${config.outputPath}`);
+  console.log(`Creating the DOCX CV...`)
+  console.log(`Done! CV generated @ ${config.outputPathDocx}`);
   console.log(` `);
   console.log(`Checking the hyperlinks (if specified):`)
   // Linkedin

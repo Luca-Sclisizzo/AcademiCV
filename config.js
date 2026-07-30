@@ -8,12 +8,15 @@
 const path = require("path");
 
 module.exports = {
-  outputDirectory:
-    "./CV_academic",                // Output folder, change if needed
+  outputDirectory: "./CV_academic",       // Output folder, change if needed
+  fileNameDocx: "CV_Sclisizzo.docx",      // Output filename (Word)
+  fileNameHtml: "CV_Sclisizzo.html",      // Output filename (HTML)
 
-  fileName: "CV_Sclisizzo.docx",    // Output filname
+  get outputPathDocx() {
+    return path.join(this.outputDirectory, this.fileNameDocx);
+  },
 
-  get outputPath() {
-    return path.join(this.outputDirectory, this.fileName);
+  get outputPathHtml() {
+    return path.join(this.outputDirectory, this.fileNameHtml);
   }
 };
