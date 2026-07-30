@@ -20,7 +20,7 @@ The CV is generated from structured data and a reusable document template, allow
 - [License](#license)
 - [Author](#author)
 
-## Preview {#preview}
+## Preview
 
 An example of the generated CV with this template:
 
@@ -28,14 +28,14 @@ An example of the generated CV with this template:
 
 ------------------------------------------------------------------------
 
-## Requirements {#requirements}
+## Requirements
 
 - [Node.js](https://nodejs.org/) v18 or later
 - npm (bundled with Node.js)
 
 ------------------------------------------------------------------------
 
-## Getting Started {#getting-started}
+## Getting Started
 
 ### Clone the repository
 
@@ -79,7 +79,7 @@ Running the script again will recreate the documents using the current data and 
 
 ------------------------------------------------------------------------
 
-## Project Structure {#project-structure}
+## Project Structure
 
 ``` text
 academic_cv_generator/
@@ -96,7 +96,7 @@ academic_cv_generator/
 
 ------------------------------------------------------------------------
 
-## How It Works {#how-it-works}
+## How It Works
 
 The generator separates **CV content** from **document formatting**.
 
@@ -187,7 +187,7 @@ Running the generator again (`./create_CV.sh`) will recreate the documents using
 
 ------------------------------------------------------------------------
 
-## Customization {#customization}
+## Customization
 
 To update the CV:
 
@@ -211,7 +211,7 @@ cv_data_industry.js
 
 ------------------------------------------------------------------------
 
-## Technology Stack {#technology-stack}
+## Technology Stack
 
 | Component           | Details                                              |
 |-----------------------------|-------------------------------------------|
@@ -222,7 +222,7 @@ cv_data_industry.js
 
 ------------------------------------------------------------------------
 
-## Why a Programmatic CV? {#why-a-programmatic-cv}
+## Why a Programmatic CV?
 
 Maintaining an academic CV as code provides several advantages:
 
@@ -237,13 +237,13 @@ This approach is particularly useful for academic careers, where research activi
 
 ------------------------------------------------------------------------
 
-## License {#license}
+## License
 
 This project is licensed under the [MIT License](LICENSE).
 
 ------------------------------------------------------------------------
 
-## Author {#author}
+## Author
 
 **Luca Sclisizzo**
 
