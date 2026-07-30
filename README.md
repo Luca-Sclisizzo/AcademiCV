@@ -1,7 +1,6 @@
 # AcademiCV
 
-![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
-![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg) ![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)
 
 Programmatic generator for an academic curriculum vitae in **Microsoft Word (.docx)** and **HTML** format, built with **Node.js** and the [`docx`](https://github.com/dolanmiu/docx) library.
 
@@ -21,22 +20,22 @@ The CV is generated from structured data and a reusable document template, allow
 - [License](#license)
 - [Author](#author)
 
-## Preview
+## Preview {#preview}
 
 An example of the generated CV with this template:
 
-<img src="assets/cv_preview.png" alt="Example page of an academic CV generated with this tool" width="650">
+<img src="assets/cv_preview.png" alt="Example page of an academic CV generated with this tool" width="650"/>
 
 ------------------------------------------------------------------------
 
-## Requirements
+## Requirements {#requirements}
 
 - [Node.js](https://nodejs.org/) v18 or later
 - npm (bundled with Node.js)
 
 ------------------------------------------------------------------------
 
-## Getting Started
+## Getting Started {#getting-started}
 
 ### Clone the repository
 
@@ -73,13 +72,14 @@ A new `.docx` and `.html` file will be generated automatically in the configured
 Running the script again will recreate the documents using the current data and overwrite the previous files with the same name.
 
 > **Note:** If `./create_CV.sh` fails to run due to permission issues, grant execute permission first:
+>
 > ``` bash
 > chmod +x ./create_CV.sh
 > ```
 
 ------------------------------------------------------------------------
 
-## Project Structure
+## Project Structure {#project-structure}
 
 ``` text
 academic_cv_generator/
@@ -96,7 +96,7 @@ academic_cv_generator/
 
 ------------------------------------------------------------------------
 
-## How It Works
+## How It Works {#how-it-works}
 
 The generator separates **CV content** from **document formatting**.
 
@@ -154,17 +154,23 @@ Each file generates a separate output for its respective format.
 Controls the output settings:
 
 - output directory;
-- separate filenames for the HTML and DOCX files.
+- separate filenames for the HTML and DOCX files;
+- optional Quarto website integration.
+
+The generator allows specifying a **Quarto project folder** where the generated HTML CV can be copied automatically. This makes it possible to update a personal academic website by regenerating the CV and optionally synchronizing the HTML file with the website folder.
 
 Example:
 
 ``` javascript
 module.exports = {
   outputDirectory: "./CV_academic",
-  fileName: "CV_MyName.docx"
+  fileNameDocx: "CV_MyName.docx",
+  fileNameHtml: "CV_MyName.html",
+
+  // Quarto integration
+  quartoFolder: "../my-quarto-website/files"
 };
 ```
-
 ------------------------------------------------------------------------
 
 ## Output
@@ -181,13 +187,13 @@ Running the generator again (`./create_CV.sh`) will recreate the documents using
 
 ------------------------------------------------------------------------
 
-## Customization
+## Customization {#customization}
 
 To update the CV:
 
-1. Modify the content in `cv_data.js`.
-2. Adjust the output settings in `config.js` if needed.
-3. Run:
+1.  Modify the content in `cv_data.js`.
+2.  Adjust the output settings in `config.js` if needed.
+3.  Run:
 
 ``` bash
 ./create_CV.sh
@@ -205,18 +211,18 @@ cv_data_industry.js
 
 ------------------------------------------------------------------------
 
-## Technology Stack
+## Technology Stack {#technology-stack}
 
-| Component           | Details                          |
-|----------------------|----------------------------------|
-| Language             | JavaScript (Node.js)             |
-| Document generation   | [`docx`](https://github.com/dolanmiu/docx) (^9.7.1) |
-| Output formats        | Microsoft Word (.docx), HTML     |
-| Module system         | CommonJS (`require`)             |
+| Component           | Details                                              |
+|-----------------------------|-------------------------------------------|
+| Language            | JavaScript (Node.js)                                 |
+| Document generation | [`docx`](https://github.com/dolanmiu/docx) (\^9.7.1) |
+| Output formats      | Microsoft Word (.docx), HTML                         |
+| Module system       | CommonJS (`require`)                                 |
 
 ------------------------------------------------------------------------
 
-## Why a Programmatic CV?
+## Why a Programmatic CV? {#why-a-programmatic-cv}
 
 Maintaining an academic CV as code provides several advantages:
 
@@ -231,15 +237,15 @@ This approach is particularly useful for academic careers, where research activi
 
 ------------------------------------------------------------------------
 
-## License
+## License {#license}
 
 This project is licensed under the [MIT License](LICENSE).
 
 ------------------------------------------------------------------------
 
-## Author
+## Author {#author}
 
 **Luca Sclisizzo**
 
 - Website: [lsclisizzo.com](https://lsclisizzo.com)
-- GitHub: [@Luca-Sclisizzo](https://github.com/Luca-Sclisizzo)
+- GitHub: [\@Luca-Sclisizzo](https://github.com/Luca-Sclisizzo)
