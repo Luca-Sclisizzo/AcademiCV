@@ -43,7 +43,7 @@ An example of the generated CV with this template:
 Clone the repository from GitHub:
 
 ``` bash
-git clone https://github.com/Luca-Sclisizzo/academic-cv-generator.git
+git clone https://github.com/Luca-Sclisizzo/AcademiCV.git
 ```
 
 Move into the project directory:
