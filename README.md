@@ -1,4 +1,4 @@
-# Academic CV Generator
+# AcademiCV
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)
