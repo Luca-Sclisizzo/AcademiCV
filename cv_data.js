@@ -99,7 +99,7 @@ module.exports = {
           title: "Computational Methods",
           bullets: [
             "Proficient in deploying and managing genomic pipelines on HPC clusters (SLURM, job arrays, parallel execution)",
-            "Statistical programming in R and Python, using Bioconductor and GWASlab for genomic and transcriptomic analyses"
+            "Statistical programming in R and Python, using Bioconductor and GWASlab for genomic analyses"
           ]
         }
       ]
@@ -159,7 +159,7 @@ module.exports = {
         coauthors:
           "Baranger DAA, Clapp Sullivan ML, Hatoum AS, Burnett C, Del Giudice M, Johnson EC.",
         affiliations:
-          "Department of Life Sciences, University of Trieste, Italy; Washington University School of Medicine, St. Louis, MO, USA; Medical College of Wisconsin, Milwaukee, WI, USA."
+          "Department of Life Sciences, University of Trieste, Italy; Department of Psychiatry, Washington University School of Medicine, St. Louis, Missouri, USA;	Department of Pharmacology and Toxicology, Medical College of Wisconsin, Milwaukee, Wisconsin, USA."
       }
     }
   ],
@@ -167,7 +167,7 @@ module.exports = {
   workInProgress: [
     {
       title:
-        "Parsing the Functional Heterogeneity of the Psychosis Spectrum: A Clinically Informed Application of Genomic SEM",
+        "Parsing the Functional Heterogeneity of the Psychosis Spectrum: A Clinically Informed Application of Genomic Structural Equation Modeling",
       status: "In preparation",
   
       subtitle:
@@ -180,7 +180,7 @@ module.exports = {
       },
   
       description:
-        "This manuscript investigates the dimensional structure of the psychosis continuum, aiming to use genetic data to disentangle the sources of heterogeneity across psychotic disorders. The project draws on post-GWAS analytical frameworks and functional annotations to characterize transdiagnostic liability dimensions."
+        "This manuscript investigates the dimensional structure of the psychosis continuum, aiming to use genetic data to disentangle the sources of heterogeneity across the psychotic disorders. The project draws on post-GWAS analytical frameworks and functional annotations to characterize transdiagnostic liability dimensions."
     },
   
     {
@@ -197,7 +197,7 @@ module.exports = {
       },
   
       description:
-        "This manuscript extends the Phenome-Wide Association Study (PheWAS) framework to a longitudinal setting, leveraging the ABCD (Adolescent Brain Cognitive Development) dataset. The project investigates the relationships between psychosis dimensionality at the genetic level and its phenotypic associations and developmental trajectories across childhood, and examines the degree of change and stability of genetic liability over time."
+        "This work extends the Phenome-Wide Association Study (PheWAS) framework to a longitudinal setting, leveraging the ABCD (Adolescent Brain Cognitive Development) dataset. The project investigates the relationships between psychosis dimensionality at the genetic level and its phenotypic associations and developmental trajectories across childhood, and examines the degree of change and stability of genetic liability over time."
     }
   ],
   // ── AWARDS ──────────────────────────────────────────────
