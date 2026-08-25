@@ -195,7 +195,27 @@ const doc = new Document({
             font: "Calibri",
             color: GRAY
           }),
-      
+          
+          new ExternalHyperlink({
+            link: cv.personal.website,
+            children: [
+              new TextRun({
+                text: cv.personal.websiteLabel,
+                size: 20,
+                font: "Calibri",
+                color: BLUE,
+                underline: { type: "single" }
+              })
+            ]
+          }),
+          
+          new TextRun({
+            text: "  |  ",
+            size: 20,
+            font: "Calibri",
+            color: GRAY
+          }),
+          
           new ExternalHyperlink({
             link: cv.personal.linkedin,
             children: [
@@ -446,6 +466,9 @@ Packer.toBuffer(doc).then(buffer => {
   // Linkedin
   console.log(cv.personal.linkedinLabel);
   console.log(cv.personal.linkedin);
+  // Website
+  console.log(cv.personal.websiteLabel);
+  console.log(cv.personal.website);
   // github
   console.log(cv.personal.githubLabel);
   console.log(cv.personal.github);

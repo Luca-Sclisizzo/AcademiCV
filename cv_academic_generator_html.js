@@ -82,6 +82,7 @@ function buildHeader() {
         ${esc(cv.personal.email)} &nbsp;|&nbsp;
         ${esc(cv.personal.phone)} &nbsp;|&nbsp;
         ${esc(cv.personal.location)} &nbsp;|&nbsp;
+        ${link(cv.personal.website, cv.personal.websiteLabel)} &nbsp;|&nbsp;
         ${link(cv.personal.linkedin, cv.personal.linkedinLabel)} &nbsp;|&nbsp;
         ${link(cv.personal.github, cv.personal.githubLabel)} &nbsp;|&nbsp;
         ${link(cv.personal.orcid, cv.personal.orcidLabel)}
@@ -387,9 +388,15 @@ console.log(` `);
 console.log(`Done! CV generated @ ${outputPath}`);
 console.log(` `);
 console.log(`Checking the hyperlinks (if specified):`);
+// Linkedin
 console.log(cv.personal.linkedinLabel);
 console.log(cv.personal.linkedin);
+// Website
+console.log(cv.personal.websiteLabel);
+console.log(cv.personal.website);
+// Github
 console.log(cv.personal.githubLabel);
 console.log(cv.personal.github);
+// ORCID
 console.log(cv.personal.orcidLabel);
 console.log(cv.personal.orcid);

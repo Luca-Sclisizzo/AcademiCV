@@ -22,6 +22,8 @@ module.exports = {
     email: "luca.sclisizzo@gmail.com",
     phone: "+39 331 572 0791",
     location: "Trieste, Italy",
+    website: "https://lsclisizzo.com",
+    websiteLabel: "website",
     github: "https://github.com/Luca-Sclisizzo",
     githubLabel: "github",
     linkedin: "https://www.linkedin.com/in/luca-sclisizzo-814b6a260/",
