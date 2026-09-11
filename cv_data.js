@@ -67,41 +67,41 @@ module.exports = {
     }
   ],
   // ── RESEARCH EXPERIENCES ──────────────────────────────────────────────
-  researchExperience: [
+researchExperience: [
     {
       title: "Research Assistant",
       date: "Aug – Nov 2025",
       subtitle:
         "Department of Psychiatry, Washington University School of Medicine, St. Louis, USA",
-  
+
       description: [
-        "Research conducted in the Behavior, Environment, and Genetics Laboratory (PI: Prof. Emma C. Johnson), focusing on behavioral genetics and biological psychiatry applied to psychosis spectrum disorders."
+        "Behavior, Environment, and Genetics Laboratory (PI: Prof. Emma C. Johnson), focusing on behavioral genetics and biological psychiatry."
       ],
-  
+
       subsections: [
         {
           title: "Genetics & Genomics",
           bullets: [
-            "Applied multivariate genetic modeling (GenomicSEM) for complex trait decomposition and cross-trait genetic architecture analysis",
-            "Post-GWAS functional annotation using MAGMA and stratified LD score regression (S-LDSC)",
-            "Characterized gene expression trajectories across human brain developmental stages from high-throughput RNA-seq data",
-            "Computed Polygenic Risk Scores via Bayesian shrinkage methods (SBayesRC)"
+            "Multivariate genetic modeling (GenomicSEM) for cross-trait genetic architecture analysis",
+            "Post-GWAS functional annotation via MAGMA and stratified LD score regression (S-LDSC)",
+            "Characterized gene expression trajectories across brain development from RNA-seq data",
+            "Computed Polygenic Risk Scores via Bayesian shrinkage (SBayesRC)"
           ]
         },
-  
+
         {
           title: "Longitudinal Modeling",
           bullets: [
-            "Implemented longitudinal hierarchical models to examine executive functioning trajectories across development",
-            "Survival analysis (Cox proportional hazards) applied to the COGA longitudinal cohort"
+            "Hierarchical models of executive functioning trajectories across development",
+            "Survival analysis (Cox proportional hazards) on the COGA longitudinal cohort"
           ]
         },
-  
+
         {
           title: "Computational Methods",
           bullets: [
-            "Proficient in deploying and managing genomic pipelines on HPC clusters (SLURM, job arrays, parallel execution)",
-            "Statistical programming in R and Python, using Bioconductor and GWASlab for genomic analyses"
+            "Deployed genomic pipelines on HPC clusters (SLURM, job arrays)",
+            "Statistical programming in R and Python (Bioconductor, GWASlab)"
           ]
         }
       ]
@@ -165,26 +165,44 @@ module.exports = {
       }
     }
   ],
-  // ── ONGOING PROJECTS ──────────────────────────────────────────────
-  workInProgress: [
+  // ── MANUSCRIPTS UNDER REVIEW ──────────────────────────────────────────────  
+underReview: [
     {
       title:
         "Parsing the Functional Heterogeneity of the Psychosis Spectrum: A Clinically Informed Application of Genomic Structural Equation Modeling",
-      status: "In preparation",
-  
+      status: "Under Review",
+      preprintUrl: null,   // Add the link, eg. "https://doi.org/..."
+
       subtitle:
         "Washington University School of Medicine, St. Louis, USA · University of Trieste, Italy",
-  
+
       role: {
         label: "Role",
         value: "First author",
         highlight: true
       },
+
+      description:
+        "This manuscript uses GenomicSEM and enrichments tecniques to disentangle the dimensional structure and heterogeneity of the psychosis continuum."
+    }
+  ],
+  // ── ONGOING PROJECTS ──────────────────────────────────────────────
+  workInProgress: [
+    {
+      title: "Characterizing the sex-specific genetic architecture of substance use disorders",
+      status: "In preparation",
+      
+      subtitle:
+        "Washington University School of Medicine, St. Louis, USA · University of Trieste, Italy",
+            role: {
+        label: "Role",
+        value: "Co-author",
+        highlight: true
+      },
   
       description:
-        "This manuscript investigates the dimensional structure of the psychosis continuum, aiming to use genetic data to disentangle the sources of heterogeneity across the psychotic disorders. The project draws on post-GWAS analytical frameworks and functional annotations to characterize transdiagnostic liability dimensions."
+        "This work performs cross-ancestry, sex-stratified GWAS analyses of traits within the substance-use domain."
     },
-  
     {
       title: "Longitudinal PheWAS in ABCD",
       status: "In preparation",
@@ -199,7 +217,7 @@ module.exports = {
       },
   
       description:
-        "This work extends the Phenome-Wide Association Study (PheWAS) framework to a longitudinal setting, leveraging the ABCD (Adolescent Brain Cognitive Development) dataset. The project investigates the relationships between psychosis dimensionality at the genetic level and its phenotypic associations and developmental trajectories across childhood, and examines the degree of change and stability of genetic liability over time."
+        "This work applies a longitudinal PheWAS framework to the ABCD dataset, linking genetic liability for psychosis dimensions to developmental trajectories across childhood."
     }
   ],
   // ── AWARDS ──────────────────────────────────────────────

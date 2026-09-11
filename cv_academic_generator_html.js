@@ -41,6 +41,10 @@ function entryTitle(title, dateRange) {
     </div>`;
 }
 
+function entryTitleOnly(title) {
+  return `<div class="entry-title-only">${esc(title)}</div>`;
+}
+
 function entrySubtitle(text) {
   return `<div class="entry-subtitle">${esc(text)}</div>`;
 }
@@ -68,6 +72,14 @@ function kvLine(key, value, highlight = false) {
 
 function link(href, label) {
   return `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
+}
+
+function kvLineHtml(key, valueHtml, highlight = false) {
+  return `
+    <div class="kv-line${highlight ? " highlight" : ""}">
+      <span class="key">${esc(key)}</span>
+      <span class="value">${valueHtml}</span>
+    </div>`;
 }
 
 // ============================================================
@@ -150,8 +162,21 @@ function buildConferencePresentations() {
         <div class="presentation-title">${esc(conf.presentation.title)}</div>
         <div class="authors">
           <span class="authors-name">${esc(conf.authors.name)}</span>, ${esc(conf.authors.coauthors)}
-          <span class="affiliations">${esc(conf.authors.affiliations)}</span>
         </div>
+      `).join("")}
+    </section>`;
+}
+
+function buildUnderReview() {
+  return `
+    <section>
+      ${sectionHeader("Manuscripts Under Review")}
+      ${cv.underReview.map(project => `
+        ${entryTitleOnly(project.title)}
+        ${entrySubtitle(project.subtitle)}
+        ${project.preprintUrl ? kvLineHtml("Preprint:", link(project.preprintUrl, "Available here")) : ""}
+        ${kvLine(`${project.role.label}:`, project.role.value, project.role.highlight)}
+        ${bodyText(project.description)}
       `).join("")}
     </section>`;
 }
@@ -161,10 +186,12 @@ function buildWorkInProgress() {
     <section>
       ${sectionHeader("Ongoing Projects")}
       ${cv.workInProgress.map(project => `
-        ${entryTitle(project.title, project.status)}
-        ${entrySubtitle(project.subtitle)}
-        ${kvLine(`${project.role.label}:`, project.role.value, project.role.highlight)}
-        ${bodyText(project.description)}
+        <div class="project-entry">
+          ${entryTitleOnly(project.title)}
+          ${entrySubtitle(project.subtitle)}
+          ${kvLine(`${project.role.label}:`, project.role.value, project.role.highlight)}
+          ${bodyText(project.description)}
+        </div>
       `).join("")}
     </section>`;
 }
@@ -263,7 +290,7 @@ const css = `
     color: var(--blue);
     text-decoration: underline;
   }
-  section { margin-bottom: 16px; }
+  section { margin-bottom: 35px; }
   .section-header {
     color: var(--blue);
     font-size: 12pt;
@@ -273,25 +300,34 @@ const css = `
     margin: 22px 0 8px;
     letter-spacing: 0.5px;
   }
-  .entry-title {
+.entry-title {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-start;   /* era: baseline */
     margin-top: 14px;
-  }
-  .entry-title .title {
+    gap: 24px;
+}
+.entry-title .title {
     font-weight: bold;
     font-size: 11pt;
     color: var(--dark);
-  }
-  .entry-title .date {
+    flex: 1;
+}
+.entry-title .date {
     font-style: italic;
     font-size: 10pt;
     color: var(--gray);
     white-space: nowrap;
-    margin-left: 12px;
-  }
-  .entry-subtitle {
+    margin-left: 0;   /* sostituito dal gap sopra */
+    text-align: right;
+}
+.entry-title-only {
+    font-weight: bold;
+    font-size: 11pt;
+    color: var(--dark);
+    margin-top: 14px;
+}
+.entry-subtitle {
     font-style: italic;
     font-size: 10pt;
     color: var(--gray);
@@ -302,18 +338,29 @@ const css = `
     margin: 4px 0;
   }
   .subheading {
-    font-weight: bold;
-    font-size: 10pt;
-    margin: 8px 0 3px;
+    font-weight: normal;
+    font-size: 8.5pt;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 10px 0 4px;
   }
-  ul.bullets {
+ul.bullets {
     margin: 2px 0 4px;
-    padding-left: 20px;
-  }
+    padding-left: 16px;
+    list-style: none;
+}
   ul.bullets li {
-    font-size: 10pt;
-    margin-bottom: 3px;
+      font-size: 10pt;
+      margin-bottom: 3px;
+      position: relative;
+      padding-left: 14px;
   }
+  ul.bullets li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+  }  
   .kv-line {
     font-size: 10pt;
     margin: 3px 0;
@@ -330,6 +377,12 @@ const css = `
     font-size: 10pt;
     margin: 2px 0 6px;
   }
+  .project-entry {
+      margin-top: 25px;
+  }
+  .project-entry:first-of-type {
+      margin-top: 0;
+  }  
   .authors {
     font-size: 10pt;
     margin-bottom: 8px;
@@ -366,10 +419,11 @@ const html = `<!DOCTYPE html>
   ${buildEducation()}
   ${buildResearchExperience()}
   ${buildTechnicalSkills()}
-  ${buildConferencePresentations()}
+  ${buildUnderReview()}
   ${buildWorkInProgress()}
-  ${buildAwards()}
+  ${buildConferencePresentations()}
   ${buildConferencesTraining()}
+  ${buildAwards()}
   ${buildOtherProfessionalExperience()}
   ${buildLanguages()}
   ${buildFooter()}

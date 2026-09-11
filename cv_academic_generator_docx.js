@@ -16,7 +16,8 @@
 // ============================================================
 const {
   Document, Packer, Paragraph, TextRun, AlignmentType, BorderStyle,
-  LevelFormat, TabStopType, ExternalHyperlink, Footer, PageNumber
+  LevelFormat, TabStopType, ExternalHyperlink, Footer, PageNumber,
+  Table, TableRow, TableCell, WidthType, VerticalAlign
 } = require('docx');
 
 const fs = require("fs");
@@ -49,6 +50,15 @@ function entryTitle(title, dateRange) {
     children: [
       new TextRun({ text: title, bold: true, size: 22, font: "Calibri", color: DARK }),
       new TextRun({ text: "\t" + dateRange, size: 20, font: "Calibri", color: GRAY, italics: true }),
+    ]
+  });
+}
+
+function entryTitleOnly(title) {
+  return new Paragraph({
+    spacing: { before: 220, after: 50 },
+    children: [
+      new TextRun({ text: title, bold: true, size: 22, font: "Calibri", color: DARK })
     ]
   });
 }
@@ -324,6 +334,54 @@ const doc = new Document({
       ),
       spacer(),
       
+      // ── UNDER REVIEW PROJECTS ────────────────────────────────────
+      sectionHeader("Manuscripts Under Review"),
+      ...cv.underReview.flatMap(project => [
+        entryTitleOnly(project.title),
+        entrySubtitle(project.subtitle),
+        ...(project.preprintUrl ? [
+          new Paragraph({
+            spacing: { before: 0, after: 60 },
+            children: [
+              new TextRun({ text: "Preprint:  ", bold: true, size: 20, font: "Calibri", color: DARK }),
+              new ExternalHyperlink({
+                link: project.preprintUrl,
+                children: [
+                  new TextRun({
+                    text: "Available here",
+                    size: 20,
+                    font: "Calibri",
+                    color: BLUE,
+                    underline: { type: "single" }
+                  })
+                ]
+              })
+            ]
+          })
+        ] : []),
+        kvLine(
+          `${project.role.label}:`,
+          project.role.value,
+          project.role.highlight
+        ),
+        bodyText(project.description),
+        spacer()
+      ]),
+      
+      // ── ONGOING PROJECTS ────────────────────────────────────
+      sectionHeader("Ongoing Projects"),
+      ...cv.workInProgress.flatMap(project => [
+        entryTitleOnly(project.title),
+        entrySubtitle(project.subtitle),
+        kvLine(
+          `${project.role.label}:`,
+          project.role.value,
+          project.role.highlight
+        ),
+        bodyText(project.description),
+        spacer()
+      ]),
+
       // ── CONFERENCE PRESENTATIONS ────────────────────────────
       sectionHeader("Conference Presentations"),
       ...cv.conferencePresentations.flatMap(conf => [
@@ -382,38 +440,8 @@ const doc = new Document({
               font: "Calibri",
               color: DARK
             }),
-            new TextRun({
-              text: ` ${conf.authors.affiliations}`,
-              size: 20,
-              font: "Calibri",
-              color: GRAY,
-              italics: true
-            })
           ]
         }),
-        spacer()
-      ]),
-
-      // ── ONGOING PROJECTS ────────────────────────────────────
-      sectionHeader("Ongoing Projects"),
-      ...cv.workInProgress.flatMap(project => [
-        entryTitle(project.title, project.status),
-        entrySubtitle(project.subtitle),
-        kvLine(
-          `${project.role.label}:`,
-          project.role.value,
-          project.role.highlight
-        ),
-        bodyText(project.description),
-        spacer()
-      ]),      
-      
-      // ── AWARDS ──────────────────────────────
-      sectionHeader("Awards"),
-      ...cv.awards.flatMap(award => [
-        entryTitle(award.title, award.date),
-        entrySubtitle(award.subtitle),
-        bodyText(award.description),
         spacer()
       ]),
       
@@ -423,6 +451,15 @@ const doc = new Document({
         entryTitle(event.title, event.date),
         entrySubtitle(event.subtitle),
         bodyText(event.description),
+        spacer()
+      ]),
+      
+      // ── AWARDS ──────────────────────────────
+      sectionHeader("Awards"),
+      ...cv.awards.flatMap(award => [
+        entryTitle(award.title, award.date),
+        entrySubtitle(award.subtitle),
+        bodyText(award.description),
         spacer()
       ]),
 
