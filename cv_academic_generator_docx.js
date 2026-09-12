@@ -16,8 +16,7 @@
 // ============================================================
 const {
   Document, Packer, Paragraph, TextRun, AlignmentType, BorderStyle,
-  LevelFormat, TabStopType, ExternalHyperlink, Footer, PageNumber,
-  Table, TableRow, TableCell, WidthType, VerticalAlign
+  LevelFormat, TabStopType, ExternalHyperlink, Footer, PageNumber
 } = require('docx');
 
 const fs = require("fs");
@@ -39,6 +38,7 @@ function sectionHeader(text) {
   return new Paragraph({
     spacing: { before: 320, after: 100 },
     border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: BLUE, space: 4 } },
+    keepNext: true,
     children: [new TextRun({ text: text.toUpperCase(), bold: true, size: 24, color: BLUE, font: "Calibri" })]
   });
 }
@@ -47,6 +47,7 @@ function entryTitle(title, dateRange) {
   return new Paragraph({
     spacing: { before: 220, after: 50 },
     tabStops: [{ type: TabStopType.RIGHT, position: 9026 }],
+    keepNext: true,
     children: [
       new TextRun({ text: title, bold: true, size: 22, font: "Calibri", color: DARK }),
       new TextRun({ text: "\t" + dateRange, size: 20, font: "Calibri", color: GRAY, italics: true }),
@@ -66,6 +67,7 @@ function entryTitleOnly(title) {
 function entrySubtitle(text) {
   return new Paragraph({
     spacing: { before: 0, after: 60 },
+    keepNext: true,
     children: [new TextRun({ text, italics: true, size: 20, font: "Calibri", color: GRAY })]
   });
 }
@@ -80,7 +82,16 @@ function bodyText(text) {
 function subheading(text) {
   return new Paragraph({
     spacing: { before: 100, after: 50 },
-    children: [new TextRun({ text, bold: true, size: 20, font: "Calibri", color: DARK })]
+    children: [
+      new TextRun({
+        text: text.toUpperCase(),
+        bold: false,
+        size: 17, // 8.5pt
+        font: "Calibri",
+        color: BLUE,
+        characterSpacing: 16 // ~0.8px letter-spacing
+      })
+    ]
   });
 }
 
@@ -92,18 +103,64 @@ function bulletItem(text) {
   });
 }
 
-function kvLine(key, value, firstItem = false) {
+function kvLine(key, value, highlight = false) {
   return new Paragraph({
-    spacing: { before: firstItem ? 80 : 0, after: 60 },
+    spacing: { before: highlight ? 80 : 0, after: 60 },
     children: [
       new TextRun({ text: key + "  ", bold: true, size: 20, font: "Calibri", color: DARK }),
-      new TextRun({ text: value, size: 20, font: "Calibri", color: DARK }),
+      new TextRun({
+        text: value,
+        size: 20,
+        font: "Calibri",
+        bold: highlight,
+        color: highlight ? BLUE : DARK
+      }),
     ]
   });
 }
 
 function spacer(size = 80) {
   return new Paragraph({ spacing: { before: 0, after: size }, children: [new TextRun("")] });
+}
+
+function doiLink(doi) {
+  const cleanDoi = doi
+    .replace(/^https?:\/\/(dx\.)?(www\.)?doi\.org\//i, "")
+    .trim();
+
+  const url = `https://doi.org/${cleanDoi}`;
+
+  return new ExternalHyperlink({
+    link: url,
+    children: [
+      new TextRun({
+        text: url,
+        size: 20,
+        font: "Calibri",
+        color: BLUE,
+        underline: { type: "single" }
+      })
+    ]
+  });
+}
+
+function labelLine(text) {
+  return new Paragraph({
+    spacing: { before: 80, after: 50 },
+    keepNext: true, // introduce sempre qualcosa sotto (il titolo della presentation)
+    children: [
+      new TextRun({ text, bold: true, size: 20, font: "Calibri", color: DARK })
+    ]
+  });
+}
+
+function italicLine(text, opts = {}) {
+  return new Paragraph({
+    spacing: { before: 0, after: opts.after ?? 50 },
+    children: [
+      new TextRun({ text, size: 20, font: "Calibri", color: DARK, italics: true })
+    ]
+  });
 }
 
 // ============================================================
@@ -339,23 +396,12 @@ const doc = new Document({
       ...cv.underReview.flatMap(project => [
         entryTitleOnly(project.title),
         entrySubtitle(project.subtitle),
-        ...(project.preprintUrl ? [
+        ...(project.doi ? [
           new Paragraph({
             spacing: { before: 0, after: 60 },
             children: [
               new TextRun({ text: "Preprint:  ", bold: true, size: 20, font: "Calibri", color: DARK }),
-              new ExternalHyperlink({
-                link: project.preprintUrl,
-                children: [
-                  new TextRun({
-                    text: "Available here",
-                    size: 20,
-                    font: "Calibri",
-                    color: BLUE,
-                    underline: { type: "single" }
-                  })
-                ]
-              })
+              doiLink(project.doi)
             ]
           })
         ] : []),
@@ -387,61 +433,12 @@ const doc = new Document({
       ...cv.conferencePresentations.flatMap(conf => [
         entryTitle(conf.title, conf.date),
         entrySubtitle(conf.location),
-        kvLine(
-          `${conf.role.label}:`,
-          conf.role.value,
-          conf.role.highlight
-        ),
-        kvLine(
-          `${conf.symposium.label}:`,
-          conf.symposium.value
-        ),
-        kvLine(
-          `${conf.discussant.label}:`,
-          conf.discussant.value
-        ),
-        new Paragraph({
-          spacing: { before: 80, after: 50 },
-          children: [
-            new TextRun({
-              text: `${conf.presentation.type}:`,
-              bold: true,
-              size: 20,
-              font: "Calibri",
-              color: DARK
-            })
-          ]
-        }),
-        new Paragraph({
-          spacing: { before: 0, after: 50 },
-          children: [
-            new TextRun({
-              text: conf.presentation.title,
-              size: 20,
-              font: "Calibri",
-              color: DARK,
-              italics: true
-            })
-          ]
-        }),
-        new Paragraph({
-          spacing: { before: 0, after: 80 },
-          children: [
-            new TextRun({
-              text: conf.authors.name,
-              bold: true,
-              size: 20,
-              font: "Calibri",
-              color: DARK
-            }),
-            new TextRun({
-              text: `, ${conf.authors.coauthors}`,
-              size: 20,
-              font: "Calibri",
-              color: DARK
-            }),
-          ]
-        }),
+        kvLine(`${conf.role.label}:`, conf.role.value, conf.role.highlight),
+        kvLine(`${conf.symposium.label}:`, conf.symposium.value),
+        kvLine(`${conf.discussant.label}:`, conf.discussant.value),
+        labelLine(`${conf.presentation.type}:`),
+        italicLine(conf.presentation.title),
+        kvLine(conf.authors.name + ",", conf.authors.coauthors),
         spacer()
       ]),
       

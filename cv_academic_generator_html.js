@@ -82,6 +82,13 @@ function kvLineHtml(key, valueHtml, highlight = false) {
     </div>`;
 }
 
+function doiLink(doi) {
+  const cleanDoi = doi
+    .replace(/^https?:\/\/(dx\.)?(www\.)?doi\.org\//i, "")
+    .trim();
+  const url = `https://doi.org/${cleanDoi}`;
+  return link(url, url);
+}
 // ============================================================
 // CV SECTIONS
 // ============================================================
@@ -174,7 +181,7 @@ function buildUnderReview() {
       ${cv.underReview.map(project => `
         ${entryTitleOnly(project.title)}
         ${entrySubtitle(project.subtitle)}
-        ${project.preprintUrl ? kvLineHtml("Preprint:", link(project.preprintUrl, "Available here")) : ""}
+        ${project.doi ? kvLineHtml("Preprint:", doiLink(project.doi)) : ""}
         ${kvLine(`${project.role.label}:`, project.role.value, project.role.highlight)}
         ${bodyText(project.description)}
       `).join("")}

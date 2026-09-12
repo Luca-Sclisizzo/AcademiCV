@@ -23,9 +23,9 @@ module.exports = {
     phone: "+39 331 572 0791",
     location: "Trieste, Italy",
     website: "https://lsclisizzo.com",
-    websiteLabel: "website",
+    websiteLabel: "Website",
     github: "https://github.com/Luca-Sclisizzo",
-    githubLabel: "github",
+    githubLabel: "Github",
     linkedin: "https://www.linkedin.com/in/luca-sclisizzo-814b6a260/",
     linkedinLabel: "LinkedIn",
     orcid: "https://orcid.org/0009-0001-2757-4261",
@@ -33,13 +33,11 @@ module.exports = {
   },
   // ── RESEARCH INTERESTS ──────────────────────────────────────────────
   researchInterests: [
-  "Behavioral Genetics",
   "Biological Psychiatry",
-  "Developmental Transcriptomics",
   "Spatio-Temporal Transcriptomics",
   "Bayesian Modeling",
-  "Polygenic Risk Scores",
-  "Longitudinal Statistical Modeling"
+  "Machine Learning",
+  "Longitudinal Modeling"
   ],
   // ── EDUCATION ──────────────────────────────────────────────
   education: [
@@ -49,7 +47,7 @@ module.exports = {
       subtitle: "University of Trieste, Italy",
       bullets: [
         "Current GPA: 29.5/30",
-        "Concentration in quantitative and computational methods for psychological research",
+        "Concentration in quantitative and computational methods for behavioral genetics",
         "Coursework in Structural Equation Modeling (SEM), Bayesian modeling, and longitudinal data analysis",
         "Advanced training in probabilistic inference and MCMC methods",
         "EQF Level 7 | 120 ECTS"
@@ -82,10 +80,10 @@ researchExperience: [
         {
           title: "Genetics & Genomics",
           bullets: [
-            "Multivariate genetic modeling (GenomicSEM) for cross-trait genetic architecture analysis",
+            "Multivariate genetic modeling (GenomicSEM)",
             "Post-GWAS functional annotation via MAGMA and stratified LD score regression (S-LDSC)",
-            "Characterized gene expression trajectories across brain development from RNA-seq data",
-            "Computed Polygenic Risk Scores via Bayesian shrinkage (SBayesRC)"
+            "Gene expression trajectories across brain development from RNA-seq data",
+            "Polygenic Risk Scores via SBayesRC"
           ]
         },
 
@@ -101,7 +99,7 @@ researchExperience: [
           title: "Computational Methods",
           bullets: [
             "Deployed genomic pipelines on HPC clusters (SLURM, job arrays)",
-            "Statistical programming in R and Python (Bioconductor, GWASlab)"
+            "Programming in R and Python for biological analyses"
           ]
         }
       ]
@@ -171,7 +169,7 @@ underReview: [
       title:
         "Parsing the Functional Heterogeneity of the Psychosis Spectrum: A Clinically Informed Application of Genomic Structural Equation Modeling",
       status: "Under Review",
-      preprintUrl: null,   // Add the link, eg. "https://doi.org/..."
+      doi: "https://doi.org/10.64898/2026.09.08.26362224",
 
       subtitle:
         "Washington University School of Medicine, St. Louis, USA · University of Trieste, Italy",
@@ -189,7 +187,7 @@ underReview: [
   // ── ONGOING PROJECTS ──────────────────────────────────────────────
   workInProgress: [
     {
-      title: "Characterizing the sex-specific genetic architecture of substance use disorders",
+      title: "Characterizing the Sex-Specific Genetic Architecture of Substance Use Disorders",
       status: "In preparation",
       
       subtitle:
@@ -228,6 +226,13 @@ underReview: [
       subtitle: "Behavior Genetics Association",
       description:
         "Travel award supporting attendance at the Behavior Genetics Association Annual Meeting in Amsterdam."
+    },
+    {
+      title: "Young Athlete of the Year",
+      date: "2019",
+      subtitle: "Evergreen Life Foundation, in collaboration with USSI FVG",
+      description:
+        "Scholarship awarded for combining academic performance with athletic achievement."
     }
   ],
   // ── CONFERENCES & WORKSHOPS ──────────────────────────────────────────────
@@ -253,7 +258,7 @@ underReview: [
       date: "Aug 2024",
       subtitle: "Berlin, Germany",
       description:
-        "Biennial conference exploring the full spectrum of personality psychology, with emphasis on innovative assessment methods leveraging mobile sensing and AI technologies."
+        "Biennial conference of personality psychology, with emphasis on innovative assessment methods leveraging mobile sensing and AI technologies."
     }
   ],
   // ── OTHER WORKING EXPERIENCES ──────────────────────────────────────────────
@@ -263,14 +268,14 @@ underReview: [
       date: "Nov 2023 – Mar 2025",
       subtitle: "Salomon S.A.S., Annecy, France",
       bullets: [
-        "Provided high-performance technical support to multiple national biathlon teams at international competitions",
-        "Collaborated with the R&D department to contribute product feedback and improve high-performance sport equipment",
-        "Operated in demanding, high-pressure international environments requiring cultural adaptability and logistical resilience"
+        "Provided high-performance technical support for world-cup competitions",
+        "Collaborated with the R&D department to improve high-performance sport equipment",
+        "Operated in high-pressure international environments"
       ]
     },
   
     {
-      title: "Competitive Alpine Skier – Italian National Team",
+      title: "Professional Cross-Country Skier – Italian National Team",
       date: "Oct 2019 – Oct 2022",
       subtitle:
         "Army’s Sport Center (Centro Sportivo Esercito), Courmayeur, Italy",
@@ -278,7 +283,7 @@ underReview: [
         "Represented Italy in national and international alpine ski competitions",
         "3rd place finish at the World Championships; multiple European Cup podiums",
         "Collaborated with multidisciplinary performance teams (coaches, physiotherapists, sports psychologists)",
-        "Demonstrated sustained high performance under competitive pressure and elite-level self-regulation"
+        "Demonstrated high performance under competitive pressure and elite-level self-regulation"
       ]
     },
   
@@ -288,9 +293,9 @@ underReview: [
       subtitle:
         "FIGC (Italian Football Federation), Regional Center, Palmanova, Italy",
       bullets: [
-        "Analyzed coach-athlete communication dynamics in youth development contexts (children and adolescents)",
-        "Designed and delivered emotional awareness and regulation training programs for coaches and athletes",
-        "Facilitated goal-setting processes tailored to individual and team performance objectives",
+        "Analyzed coach-athlete communication dynamics",
+        "Delivered emotional regulation training programs for coaches",
+        "Facilitated goal-setting processes for individual and team performance objectives",
         "Led structured activities aimed at improving teamwork and team cohesion"
       ]
     }
@@ -299,13 +304,12 @@ underReview: [
   languages: [
     {
       language: "Italian",
-      proficiency: "Native",
-      highlight: true
+      proficiency: "Native"
     },
     {
       language: "English",
       proficiency:
-        "Proficient (C1) – reading, writing, spoken production and interaction"
+        "Proficient (C1) – TOEFL iBT score 110 / 120"
     },
     {
       language: "French",
