@@ -242,7 +242,7 @@ underReview: [
       date: "Jun 2026",
       subtitle: "Amsterdam, Netherlands",
       description:
-        "Attended the annual international conference of the Behavior Genetics Association (BGA), featuring the latest research in behavioral genetics, statistical genetics, and genomics."
+        "Attended the annual international conference of the Behavior Genetics Association (BGA), featuring the latest research in behavioral and statistical genetics."
     },
   
     {
