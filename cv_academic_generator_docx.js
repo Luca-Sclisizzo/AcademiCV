@@ -196,7 +196,7 @@ const doc = new Document({
         tabStops: [{ type: TabStopType.RIGHT, position: 9026 }],
         children: [
           new TextRun({
-            text: `Last updated ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}`,
+            text: `Last Updated ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}`,
             size: 16,
             font: "Calibri",
             color: GRAY,

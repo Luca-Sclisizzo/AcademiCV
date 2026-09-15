@@ -253,7 +253,7 @@ function buildFooter() {
   const lastUpdated = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
   return `
     <footer class="cv-footer">
-      Last updated ${esc(lastUpdated)}
+      Last Updated ${esc(lastUpdated)}
     </footer>`;
 }
 
