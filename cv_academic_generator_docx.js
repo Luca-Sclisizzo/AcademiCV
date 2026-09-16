@@ -322,7 +322,27 @@ const doc = new Document({
             font: "Calibri",
             color: GRAY
           }),
+          
+                    new ExternalHyperlink({
+            link: cv.personal.gscholar,
+            children: [
+              new TextRun({
+                text: cv.personal.gscholarLabel,
+                size: 20,
+                font: "Calibri",
+                color: BLUE,
+                underline: { type: "single" }
+              })
+            ]
+          }),
       
+          new TextRun({
+            text: "  |  ",
+            size: 20,
+            font: "Calibri",
+            color: GRAY
+          }),
+
           new ExternalHyperlink({
             link: cv.personal.orcid,
             children: [

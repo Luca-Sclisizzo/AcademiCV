@@ -28,6 +28,8 @@ module.exports = {
     githubLabel: "Github",
     linkedin: "https://www.linkedin.com/in/luca-sclisizzo-814b6a260/",
     linkedinLabel: "LinkedIn",
+    gscholar: "https://scholar.google.com/citations?hl=it&user=3xZe5gEAAAAJ",
+    gscholarLabel: "Scholar",
     orcid: "https://orcid.org/0009-0001-2757-4261",
     orcidLabel: "ORCID"
   },

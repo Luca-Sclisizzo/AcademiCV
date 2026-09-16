@@ -104,6 +104,7 @@ function buildHeader() {
         ${link(cv.personal.website, cv.personal.websiteLabel)} &nbsp;|&nbsp;
         ${link(cv.personal.linkedin, cv.personal.linkedinLabel)} &nbsp;|&nbsp;
         ${link(cv.personal.github, cv.personal.githubLabel)} &nbsp;|&nbsp;
+        ${link(cv.personal.gscholar, cv.personal.gscholarLabel)} &nbsp;|&nbsp;
         ${link(cv.personal.orcid, cv.personal.orcidLabel)}
       </div>
     </header>`;
