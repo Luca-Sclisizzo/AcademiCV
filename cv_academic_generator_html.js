@@ -89,6 +89,10 @@ function doiLink(doi) {
   const url = `https://doi.org/${cleanDoi}`;
   return link(url, url);
 }
+
+function goalText(text) {
+  return `<p class="body-text goal-text"><strong>Goal:</strong> ${text}</p>`;
+}
 // ============================================================
 // CV SECTIONS
 // ============================================================
@@ -138,9 +142,9 @@ function buildResearchExperience() {
         ${entryTitle(exp.title, exp.date)}
         ${entrySubtitle(exp.subtitle)}
         ${exp.description.map(bodyText).join("")}
-        ${exp.subsections.map(sec => `
-          ${subheading(sec.title)}
-          ${bulletList(sec.bullets)}
+        ${exp.goal.map(g => `
+          ${goalText(g.text)}
+          ${bulletList(g.bullets)}
         `).join("")}
       `).join("")}
     </section>`;
@@ -231,7 +235,7 @@ function buildConferencesTraining() {
 function buildOtherProfessionalExperience() {
   return `
     <section>
-      ${sectionHeader("Other Professional Experience")}
+      ${sectionHeader("Professional Experience")}
       ${cv.otherProfessionalExperience.map(exp => `
         ${entryTitle(exp.title, exp.date)}
         ${entrySubtitle(exp.subtitle)}
@@ -345,6 +349,9 @@ const css = `
     font-size: 10pt;
     margin: 4px 0;
   }
+  .goal-text {
+  margin-top: 10px;
+  }
   .subheading {
     font-weight: normal;
     font-size: 8.5pt;
@@ -353,11 +360,11 @@ const css = `
     letter-spacing: 0.8px;
     margin: 10px 0 4px;
   }
-ul.bullets {
-    margin: 2px 0 4px;
-    padding-left: 16px;
-    list-style: none;
-}
+  ul.bullets {
+      margin: 2px 0 4px;
+      padding-left: 16px;
+      list-style: none;
+  }
   ul.bullets li {
       font-size: 10pt;
       margin-bottom: 3px;

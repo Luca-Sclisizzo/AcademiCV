@@ -36,7 +36,7 @@ const GRAY = "555555";
 
 function sectionHeader(text) {
   return new Paragraph({
-    spacing: { before: 320, after: 100 },
+    spacing: { before: 200, after: 100 },
     border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: BLUE, space: 4 } },
     keepNext: true,
     children: [new TextRun({ text: text.toUpperCase(), bold: true, size: 24, color: BLUE, font: "Calibri" })]
@@ -45,7 +45,7 @@ function sectionHeader(text) {
 
 function entryTitle(title, dateRange) {
   return new Paragraph({
-    spacing: { before: 220, after: 50 },
+    spacing: { before: 25, after: 25 },
     tabStops: [{ type: TabStopType.RIGHT, position: 9026 }],
     keepNext: true,
     children: [
@@ -119,8 +119,8 @@ function kvLine(key, value, highlight = false) {
   });
 }
 
-function spacer(size = 80) {
-  return new Paragraph({ spacing: { before: 0, after: size }, children: [new TextRun("")] });
+function spacer(size = 20) {
+  return new Paragraph({ spacing: { after: size }, children: [new TextRun("")] });
 }
 
 function doiLink(doi) {
@@ -162,7 +162,22 @@ function italicLine(text, opts = {}) {
     ]
   });
 }
-
+function goalText(text) {
+  return new Paragraph({
+    children: [
+      new TextRun({
+        text: "Goal:",
+        bold: true
+      }),
+      new TextRun({
+        text: ` ${text}`
+      })
+    ],
+    spacing: {
+      before: 100
+    }
+  });
+}
 // ============================================================
 // DOCUMENT CREATION
 // ============================================================
@@ -323,7 +338,7 @@ const doc = new Document({
             color: GRAY
           }),
           
-                    new ExternalHyperlink({
+          new ExternalHyperlink({
             link: cv.personal.gscholar,
             children: [
               new TextRun({
@@ -388,18 +403,20 @@ const doc = new Document({
       ...cv.researchExperience.flatMap(exp => [
         entryTitle(exp.title, exp.date),
         entrySubtitle(exp.subtitle),
+      
         ...exp.description.map(text =>
           bodyText(text)
         ),
-        ...exp.subsections.flatMap(section => [
-          subheading(section.title),
-          ...section.bullets.map(item =>
+      
+        ...exp.goal.flatMap(goal => [
+          goalText(goal.text),
+          ...goal.bullets.map(item =>
             bulletItem(item)
           )
         ]),
-        spacer()
-      ]),
       
+        spacer()
+      ]),      
       // ── TECHNICAL SKILLS ────────────────────────────────────
       sectionHeader("Technical Skills"),
       ...cv.technicalSkills.map(skill =>
@@ -481,7 +498,7 @@ const doc = new Document({
       ]),
 
       // ── OTHER PROFESSIONAL EXPERIENCE ───────────────────────
-      sectionHeader("Other Professional Experience"),
+      sectionHeader("Professional Experience"),
       ...cv.otherProfessionalExperience.flatMap(exp => [
         entryTitle(exp.title, exp.date),
         entrySubtitle(exp.subtitle),

@@ -51,7 +51,7 @@ module.exports = {
         "Current GPA: 29.5/30",
         "Concentration in quantitative and computational methods for behavioral genetics",
         "Coursework in Structural Equation Modeling (SEM), Bayesian modeling, and longitudinal data analysis",
-        "Advanced training in probabilistic inference and MCMC methods",
+        "Advanced training in probabilistic inference and Markov chain Monte Carlo (MCMC) methods",
         "EQF Level 7 | 120 ECTS"
       ]
     },
@@ -67,45 +67,37 @@ module.exports = {
     }
   ],
   // ── RESEARCH EXPERIENCES ──────────────────────────────────────────────
-researchExperience: [
+  researchExperience: [
     {
-      title: "Research Assistant",
-      date: "Aug – Nov 2025",
-      subtitle:
-        "Department of Psychiatry, Washington University School of Medicine, St. Louis, USA",
-
-      description: [
-        "Behavior, Environment, and Genetics Laboratory (PI: Prof. Emma C. Johnson), focusing on behavioral genetics and biological psychiatry."
-      ],
-
-      subsections: [
-        {
-          title: "Genetics & Genomics",
-          bullets: [
-            "Multivariate genetic modeling (GenomicSEM)",
-            "Post-GWAS functional annotation via MAGMA and stratified LD score regression (S-LDSC)",
-            "Gene expression trajectories across brain development from RNA-seq data",
-            "Polygenic Risk Scores via SBayesRC"
-          ]
-        },
-
-        {
-          title: "Longitudinal Modeling",
-          bullets: [
-            "Hierarchical models of executive functioning trajectories across development",
-            "Survival analysis (Cox proportional hazards) on the COGA longitudinal cohort"
-          ]
-        },
-
-        {
-          title: "Computational Methods",
-          bullets: [
-            "Deployed genomic pipelines on HPC clusters (SLURM, job arrays)",
-            "Programming in R and Python for biological analyses"
-          ]
-        }
-      ]
-    }
+        title: "Research Assistant",
+        date: "Aug – Nov 2025",
+        subtitle:
+          "Department of Psychiatry, Washington University School of Medicine, St. Louis, USA",
+        description: [
+          "Behavior, Environment, and Genetics Laboratory (PI: Dr. Emma C. Johnson), behavioral genetics and biological psychiatry."
+        ],
+          goal: [
+            {
+              text: "Study the genetic architecture of the psychosis spectrum using post-GWAS analyses and characterizing its biological functioning with enrichment and functional analyses.",
+              bullets: [
+                "Performed ultivariate genetic modeling (GenomicSEM) to understand the dimensionality of psychosis",
+                "Performed post-GWAS functional annotation via MAGMA and stratified LD score regression (S-LDSC), using recent omics-based annotations and BaselineV2.2",
+                "Computed spatiotemporal bulk RNA-seq trajectories across brain development using the BrainSpan dataset",
+                "Computed Polygenic Risk Scores (PRS) via SBayesRC",
+                "Deployed genomic pipelines on HPC clusters (SLURM, job arrays)",
+                "Programming in R and Python for biological analyses"
+              ]
+            },
+            {
+              text: "Develop genetically informed longitudinal models to study the interplay between genetic liability and childhood development, encompassing both clinical and behavioral traits.",
+              bullets: [
+              "Performed growth mixture models of executive functions trajectories across development using the Collaborative Study on the Genetics of Alcoholism (COGA)",
+              "Curated survival analysis (Cox proportional hazards) in COGA for a longitudinal joint model",
+              "Longitudinal Phenome-wide Association Study (PheWAS) on the Adolescent Brain Cognitive Development (ABCD) study"
+            ]
+          }
+        ]
+      }
   ],
   // ── TECHNICAL SKILLS ──────────────────────────────────────────────
   technicalSkills: [
@@ -166,26 +158,26 @@ researchExperience: [
     }
   ],
   // ── MANUSCRIPTS UNDER REVIEW ──────────────────────────────────────────────  
-underReview: [
-    {
-      title:
-        "Parsing the Functional Heterogeneity of the Psychosis Spectrum: A Clinically Informed Application of Genomic Structural Equation Modeling",
-      status: "Under Review",
-      doi: "https://doi.org/10.64898/2026.09.08.26362224",
-
-      subtitle:
-        "Washington University School of Medicine, St. Louis, USA · University of Trieste, Italy",
-
-      role: {
-        label: "Role",
-        value: "First author",
-        highlight: true
-      },
-
-      description:
-        "This manuscript uses GenomicSEM and enrichments tecniques to disentangle the dimensional structure and heterogeneity of the psychosis continuum."
-    }
-  ],
+  underReview: [
+      {
+        title:
+          "Parsing the Functional Heterogeneity of the Psychosis Spectrum: A Clinically Informed Application of Genomic Structural Equation Modeling",
+        status: "Under Review",
+        doi: "https://doi.org/10.64898/2026.09.08.26362224",
+  
+        subtitle:
+          "Washington University School of Medicine, St. Louis, USA · University of Trieste, Italy",
+  
+        role: {
+          label: "Role",
+          value: "First author",
+          highlight: true
+        },
+  
+        description:
+          "This manuscript uses GenomicSEM, a multivariate post-GWAS framework for SEM models, biological annotations, tissue enrichments and transcriptome trajectories to disentangle the genetic heterogeneity of the psychosis continuum."
+      }
+    ],
   // ── ONGOING PROJECTS ──────────────────────────────────────────────
   workInProgress: [
     {
@@ -204,7 +196,7 @@ underReview: [
         "This work performs cross-ancestry, sex-stratified GWAS analyses of traits within the substance-use domain."
     },
     {
-      title: "Longitudinal PheWAS in ABCD",
+      title: "Longitudinal Phenome-wide Association Study (PheWAS) in ABCD",
       status: "In preparation",
   
       subtitle:
@@ -230,11 +222,18 @@ underReview: [
         "Travel award supporting attendance at the Behavior Genetics Association Annual Meeting in Amsterdam."
     },
     {
+      title: "INPS Scholarship - Academic Merit Awars",
+      date: "2022",
+      subtitle: "National Institure for Social Security INPS",
+      description:
+        "Scholarship award of 2000€ for academic results"
+    },
+    {
       title: "Young Athlete of the Year",
       date: "2019",
       subtitle: "Evergreen Life Foundation, in collaboration with USSI FVG",
       description:
-        "Scholarship awarded for combining academic performance with athletic achievement."
+        "Scholarship award of 1500€ for combining academic performance with athletic achievement."
     }
   ],
   // ── CONFERENCES & WORKSHOPS ──────────────────────────────────────────────
@@ -246,7 +245,6 @@ underReview: [
       description:
         "Attended the annual international conference of the Behavior Genetics Association (BGA), featuring the latest research in behavioral and statistical genetics."
     },
-  
     {
       title: "Evolutionary Psychiatry and Genetics Conference",
       date: "Jul 2024",
@@ -254,7 +252,6 @@ underReview: [
       description:
         "Intensive course “Towards a new science of mental disorders: bridging evolution and genetics”. Interdisciplinary forum connecting evolutionary psychiatry, psychopathology, and recent findings in behavioral genetics and genomics."
     },
-  
     {
       title: "21st European Conference on Personality (ECP21)",
       date: "Aug 2024",
@@ -263,16 +260,17 @@ underReview: [
         "Biennial conference of personality psychology, with emphasis on innovative assessment methods leveraging mobile sensing and AI technologies."
     }
   ],
-  // ── OTHER WORKING EXPERIENCES ──────────────────────────────────────────────
+  // ── WORKING EXPERIENCES ──────────────────────────────────────────────
   otherProfessionalExperience: [
     {
       title: "International Racing Service – Biathlon",
       date: "Nov 2023 – Mar 2025",
       subtitle: "Salomon S.A.S., Annecy, France",
       bullets: [
-        "Provided high-performance technical support for world-cup competitions",
-        "Collaborated with the R&D department to improve high-performance sport equipment",
-        "Operated in high-pressure international environments"
+        "Provided high-performance technical support for two world-cup season across the world preparing and adjusting equipment within tight pre-race windows",
+        "Collaborated with several elite national teams",
+        "Collaborated with the R&D department to improve high-performance ski gears contributing to increasing product performance",
+        "Operated in high-pressure international environments",
       ]
     },
   
@@ -282,8 +280,9 @@ underReview: [
       subtitle:
         "Army’s Sport Center (Centro Sportivo Esercito), Courmayeur, Italy",
       bullets: [
-        "Represented Italy in national and international alpine ski competitions",
+        "Represented Italy in national and international cross-country ski competitions",
         "3rd place finish at the World Championships; multiple European Cup podiums",
+        "Participated at the European Youth Olimpic Festival",
         "Collaborated with multidisciplinary performance teams (coaches, physiotherapists, sports psychologists)",
         "Demonstrated high performance under competitive pressure and elite-level self-regulation"
       ]
