@@ -36,7 +36,7 @@ const GRAY = "555555";
 
 function sectionHeader(text) {
   return new Paragraph({
-    spacing: { before: 200, after: 100 },
+    spacing: { before: 170, after: 100 },
     border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: BLUE, space: 4 } },
     keepNext: true,
     children: [new TextRun({ text: text.toUpperCase(), bold: true, size: 24, color: BLUE, font: "Calibri" })]
