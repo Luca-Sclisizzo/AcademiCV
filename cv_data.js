@@ -263,6 +263,16 @@ module.exports = {
   // ── WORKING EXPERIENCES ──────────────────────────────────────────────
   otherProfessionalExperience: [
     {
+      title: "Clinical Training with Autism",
+      date: "Feb 2026 – July 2026",
+      subtitle: "ProgettoAutismo FVG, Udine, Italy",
+      bullets: [
+        "Gained experience in clinical practice with Autism",
+        "Collaborated in an European research project to develop a predictive model for meltdown episodes"
+      ]
+    },
+    
+    {
       title: "International Racing Service – Biathlon",
       date: "Nov 2023 – Mar 2025",
       subtitle: "Salomon S.A.S., Annecy, France",
