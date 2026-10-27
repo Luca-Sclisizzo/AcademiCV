@@ -44,21 +44,21 @@ module.exports = {
   // ── EDUCATION ──────────────────────────────────────────────
   education: [
     {
-      title: "M.Sc. in Applied Psychology",
-      date: "Oct 2024 – Present",
+      title: "M.Sc. in Applied Psychology (Cum Laude)",
+      date: "Oct 2024 - Oct 2026",
       subtitle: "University of Trieste, Italy",
       bullets: [
-        "Current GPA: 29.5/30",
+        "GPA: 29.5/30",
+        "Thesis: “Functional Splitting of Psychosis Spectrum: A Clinical Application of Genomic SEM”",
         "Concentration in quantitative and computational methods for behavioral genetics",
-        "Coursework in Structural Equation Modeling (SEM), Bayesian modeling, and longitudinal data analysis",
+        "Structural Equation Modeling (SEM), Bayesian modeling, and longitudinal data analysis",
         "Advanced training in probabilistic inference and Markov chain Monte Carlo (MCMC) methods",
         "EQF Level 7 | 120 ECTS"
       ]
     },
-  
     {
       title: "B.Sc. in Psychology (Cum Laude)",
-      date: "Aug 2021 – Sep 2024",
+      date: "Aug 2021 - Sep 2024",
       subtitle: "University of Trieste, Italy",
       bullets: [
         "Thesis: “The well-being of the athlete: analysis of the literature, evolutionary models, and predictive models”",
@@ -68,13 +68,40 @@ module.exports = {
   ],
   // ── RESEARCH EXPERIENCES ──────────────────────────────────────────────
   researchExperience: [
-    {
+    { // ── WashU Visiting 2  ──────────────────────────────────────────────
+      title: "Research Assistant",
+      date: "Nov 2026 - Present",
+      subtitle:
+        "Department of Psychiatry, Washington University School of Medicine, St. Louis, USA",
+      description: [
+        "Behavior, Environment, and Genetics Laboratory (PI: Dr. Emma C. Johnson) and Hatoum Laboratory (PI: Dr. Alexander Hatoum). Research on longitudinal modelling and machine learning applications in psychiatric genomics."
+      ],
+      goal: [
+        {
+          text: "Longitudinal modelling of psychiatric and behavioural phenotypes. Supervised by Dr. Johnson.",
+          bullets: [
+            "Latent growth curve modelling using Mplus",
+            "Longitudinal analyses of data from the Adolescent Brain Cognitive Development (ABCD) Study",
+            "Longitudinal Phenome-Wide Association Study (PheWAS)"
+          ]
+        },
+        {
+          text: "Machine learning for the prediction of opioid overdose death using genomic data. Supervised by Dr. Hatoum.",
+          bullets: [
+            "Application of multi-polygenic score (multi-PGS) models",
+            "Multi PGS prediction through Bayesian PGS methods and tree based machine-learning algorithms",
+            "Evaluation of genomic predictors of opioid overdose death"
+          ]
+        }
+      ]
+    },
+    { // ── WashU Visiting 1  ──────────────────────────────────────────────
         title: "Research Assistant",
-        date: "Aug – Nov 2025",
+        date: "Aug - Nov 2025",
         subtitle:
           "Department of Psychiatry, Washington University School of Medicine, St. Louis, USA",
         description: [
-          "Behavior, Environment, and Genetics Laboratory (PI: Dr. Emma C. Johnson), behavioral genetics and biological psychiatry."
+          "Behavior, Environment, and Genetics Laboratory (PI: Dr. Emma C. Johnson). Research in behavioral genetics and biological psychiatry."
         ],
           goal: [
             {
@@ -264,7 +291,7 @@ module.exports = {
   otherProfessionalExperience: [
     {
       title: "Clinical Training with Autism",
-      date: "Feb 2026 – July 2026",
+      date: "Feb 2026 - July 2026",
       subtitle: "ProgettoAutismo FVG, Udine, Italy",
       bullets: [
         "Gained experience in clinical practice with Autism",
@@ -273,8 +300,8 @@ module.exports = {
     },
     
     {
-      title: "International Racing Service – Biathlon",
-      date: "Nov 2023 – Mar 2025",
+      title: "International Racing Service - Biathlon",
+      date: "Nov 2023 - Mar 2025",
       subtitle: "Salomon S.A.S., Annecy, France",
       bullets: [
         "Provided high-performance technical support for two world-cup season across the world preparing and adjusting equipment within tight pre-race windows",
@@ -285,8 +312,8 @@ module.exports = {
     },
   
     {
-      title: "Professional Cross-Country Skier – Italian National Team",
-      date: "Oct 2019 – Oct 2022",
+      title: "Professional Cross-Country Skier - Italian National Team",
+      date: "Oct 2019 - Oct 2022",
       subtitle:
         "Army’s Sport Center (Centro Sportivo Esercito), Courmayeur, Italy",
       bullets: [
@@ -299,8 +326,8 @@ module.exports = {
     },
   
     {
-      title: "Psychology Trainee – Sport Psychology Unit",
-      date: "Nov 2022 – May 2023",
+      title: "Psychology Trainee - Sport Psychology Unit",
+      date: "Nov 2022 - May 2023",
       subtitle:
         "FIGC (Italian Football Federation), Regional Center, Palmanova, Italy",
       bullets: [
@@ -320,11 +347,11 @@ module.exports = {
     {
       language: "English",
       proficiency:
-        "Proficient (C1) – TOEFL iBT score 110 / 120"
+        "Proficient (C1) - TOEFL iBT score 110 / 120"
     },
     {
       language: "French",
-      proficiency: "Basic (A1–A2)"
+      proficiency: "Basic (A1-A2)"
     }
   ],
 };
