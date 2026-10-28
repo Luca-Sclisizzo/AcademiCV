@@ -74,15 +74,15 @@ module.exports = {
       subtitle:
         "Department of Psychiatry, Washington University School of Medicine, St. Louis, USA",
       description: [
-        "Behavior, Environment, and Genetics Laboratory (PI: Dr. Emma C. Johnson) and Hatoum Laboratory (PI: Dr. Alexander Hatoum). Research on longitudinal modelling and machine learning applications in psychiatric genomics."
+        "Behavior, Environment, and Genetics Laboratory (PI: Dr. Emma C. Johnson) and Hatoum Laboratory (PI: Dr. Alexander Hatoum). Research on geentically informed longitudinal models and machine learning applications in psychiatric genomics."
       ],
       goal: [
         {
-          text: "Longitudinal modelling of psychiatric and behavioural phenotypes. Supervised by Dr. Johnson.",
+          text: "Genetically informed longitudinal models of psychiatric and behavioural phenotypes. Supervised by Dr. Johnson.",
           bullets: [
+            "Longitudinal Phenome-Wide Association Study (PheWAS)",
             "Latent growth curve modelling using Mplus",
-            "Longitudinal analyses of data from the Adolescent Brain Cognitive Development (ABCD) Study",
-            "Longitudinal Phenome-Wide Association Study (PheWAS)"
+            "Longitudinal analyses of data from the Adolescent Brain Cognitive Development (ABCD) Study"
           ]
         },
         {
