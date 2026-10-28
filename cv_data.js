@@ -74,7 +74,7 @@ module.exports = {
       subtitle:
         "Department of Psychiatry, Washington University School of Medicine, St. Louis, USA",
       description: [
-        "Behavior, Environment, and Genetics Laboratory (PI: Dr. Emma C. Johnson) and Hatoum Laboratory (PI: Dr. Alexander Hatoum). Research on geentically informed longitudinal models and machine learning applications in psychiatric genomics."
+        "Behavior, Environment, and Genetics Laboratory (PI: Dr. Emma C. Johnson) and Hatoum Laboratory (PI: Dr. Alexander Hatoum). Research on genetically informed longitudinal models and machine learning applications in psychiatric genomics."
       ],
       goal: [
         {
